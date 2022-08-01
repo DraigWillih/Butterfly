@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MissionController : MonoBehaviour
 {
 	
-	public Text[] missionDescription, missionReward, missionProgress;
+	public TMP_Text[] missionDescription, missionReward, missionProgress;
 	public GameObject[] RecompensaBtn;
 	private GameController gameController;
     // Start is called before the first frame update
