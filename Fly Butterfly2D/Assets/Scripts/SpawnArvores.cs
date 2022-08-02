@@ -24,7 +24,7 @@ public class SpawnArvores : MonoBehaviour
         {
             GameObject newPipe = Instantiate(pipe);
             newPipe.transform.position = transform.position + new Vector3(0, Random.Range(-height, height));
-            Destroy(newPipe, 10f);
+            Destroy(newPipe, 40f);
             timer = 0f;
         }
         timer += Time.deltaTime;

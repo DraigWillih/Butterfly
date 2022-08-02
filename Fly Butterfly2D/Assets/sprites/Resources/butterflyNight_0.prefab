@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4662781666854775490}
   - component: {fileID: 1377362719380509074}
   - component: {fileID: -1267306944375674783}
+  - component: {fileID: 46735185298404461}
   m_Layer: 0
   m_Name: butterflyNight_0
   m_TagString: Untagged
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nectar: 0
   score: 0
-  speed: 90
+  speed: 110
   GameOver: {fileID: 0}
 --- !u!50 &-1267306944375674783
 Rigidbody2D:
@@ -141,3 +142,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &46735185298404461
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662781666854775489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.4542007, y: 6.1355133}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 204.8, y: 204.8}
+    newSize: {x: 204.8, y: 204.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 180.25795, y: 141.04071}
+  m_EdgeRadius: 0

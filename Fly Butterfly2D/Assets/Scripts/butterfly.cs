@@ -20,7 +20,7 @@ public class butterfly : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         gameController = FindObjectOfType<GameController>();
         gameController.StartMission();
-        GameOver = GameObject.FindWithTag("GameOver");
+        //GameOver = GameObject.FindWithTag("GameOver");
     }
 
     // Update is called once per frame

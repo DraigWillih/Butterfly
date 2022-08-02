@@ -11757,5 +11757,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: butterfly_0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 385833845317422839, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
