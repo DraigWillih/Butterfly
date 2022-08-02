@@ -20,6 +20,7 @@ public class butterfly : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         gameController = FindObjectOfType<GameController>();
         gameController.StartMission();
+        GameOver = GameObject.FindWithTag("GameOver");
     }
 
     // Update is called once per frame
@@ -41,6 +42,11 @@ public class butterfly : MonoBehaviour
     {
         gameController.nectar++;
         gameController.nectarText.text = gameController.nectar.ToString();
+    }
+
+    IEnumerator closeGameOver()
+    {
+        yield return 1f;
     }
 
 }
