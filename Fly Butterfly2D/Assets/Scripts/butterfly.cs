@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class butterfly : MonoBehaviour
 {
-    private GameController gameController;
-
-    public float Nectar;
-    public float score;
-        
     public float speed = 1f;
     private Rigidbody2D rig;
 
     public GameObject GameOver;
-    
+    public TMP_Text nectarText;
+
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
-        gameController = FindObjectOfType<GameController>();
-        gameController.StartMission();
+        GameController.instance.nectarText = nectarText;
+        GameController.instance.StartMission();
     }
 
     // Update is called once per frame
@@ -36,11 +33,17 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(true);
         Time.timeScale = 0;
         Timer.stopTime = true;
+        GameController.instance.data.Save(GameController.instance.nectar_current, GameController.instance.score_current);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameController.nectar++;
-        gameController.nectarText.text = gameController.nectar.ToString();
+        GameController.instance.nectar_current++;
+        GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
+    }
+
+    public void LoadScenes(string cena)
+    {
+        GameController.instance.LoadScenes(cena);
     }
 
 }
