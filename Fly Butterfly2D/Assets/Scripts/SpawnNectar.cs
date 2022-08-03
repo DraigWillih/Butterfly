@@ -24,7 +24,7 @@ public class SpawnNectar : MonoBehaviour
         {
             GameObject newNectar = Instantiate(nectar);
             newNectar.transform.position = transform.position + new Vector3(0, Random.Range(-height, height));
-            Destroy(newNectar,10f);
+            Destroy(newNectar,20f);
             timer = 0f;
         }
         

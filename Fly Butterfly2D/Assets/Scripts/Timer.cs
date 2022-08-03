@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
-   public float timeLevel;
-    public Text timeLevelTxt;
+    public float timeLevel;
+    public TextMeshProUGUI timeLevelTxt;
     public static bool stopTime;
 
     private GameController gameController;
