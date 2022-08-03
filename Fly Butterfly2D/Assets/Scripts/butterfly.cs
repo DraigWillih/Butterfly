@@ -46,4 +46,9 @@ public class butterfly : MonoBehaviour
         GameController.instance.LoadScenes(cena);
     }
 
+    IEnumerator closeGameOver()
+    {
+        yield return 1f;
+    }
+
 }
