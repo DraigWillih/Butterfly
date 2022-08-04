@@ -20,6 +20,11 @@ public class MissionController : MonoBehaviour
 		GameController.instance.UpdateHUD();
     }
 
+	public void UpdateNectar(float nectar)
+    {
+		nectarText.text = nectar.ToString();
+    }
+
 	public void SetMission()
 	{
 		for (int i = 0; i < 2; i++)
@@ -35,16 +40,11 @@ public class MissionController : MonoBehaviour
 		}
 	}
 
-	public void UpdateCoins(int coins)
+	public void PegarRecompensa(int missionIndex)
     {
-		nectarText.text = coins.ToString();
-    }
-	
-	/*public void PegarRecompensa(int missionIndex)
-    {
-		GameController.gc.nectar += GameController.gc.GetMission(missionIndex).reward;
-		UpdateCoins(GameController.gc.nectar);
+		GameController.instance.nectar_current += GameController.instance.GetMission(missionIndex).reward;
+		UpdateNectar(GameController.instance.nectar_current);
 		RecompensaBtn[missionIndex].SetActive(false);
-		GameController.gc.GenerateMission(missionIndex);
-    }*/
+		GameController.instance.GenerateMission(missionIndex);
+    }
 }

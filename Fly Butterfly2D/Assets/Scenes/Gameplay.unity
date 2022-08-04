@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -244,7 +244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: b91a3cd6793235646a92c9e042d02c72, type: 2}
   m_audioClip: {fileID: 8300000, guid: 37ad35aca99d08349969382fa2ccac7a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.511
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2509,32 +2509,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1434567171
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1434567165}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 6.1418457, y: 6.141678}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 128, y: 128.03127}
-    newSize: {x: 204.8, y: 204.85002}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 192.5163, y: 140.97513}
-  m_EdgeRadius: 0
 --- !u!1 &1532454557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2683,6 +2657,14 @@ PrefabInstance:
     - target: {fileID: 208205248833122799, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
       propertyPath: nectarText
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
+      propertyPath: m_Size.x
+      value: 85.73349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
+      propertyPath: m_Offset.x
+      value: -10.272278
       objectReference: {fileID: 0}
     - target: {fileID: 3826781602819633175, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
       propertyPath: m_RootOrder

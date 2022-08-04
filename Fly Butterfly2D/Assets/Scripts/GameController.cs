@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public AdsManager ads;
 
-    
+
     private void Awake()
     {
         if (instance == null)

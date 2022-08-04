@@ -42,7 +42,7 @@ public class SingleRun : MissionBase
         missionType = MissionType.SingleRun;
         int[] maxValues = {100,200,200,400,500};
         int randomMaxValue = Random.Range(0, maxValues.Length);
-        int[] rewards = { 10, 20, 30, 40, 50 };
+        int[] rewards = { 50, 75, 100, 125, 150 };
         reward = rewards[randomMaxValue];
         max = maxValues[randomMaxValue];
         progress = 0;
@@ -72,9 +72,9 @@ public class TotalMeters : MissionBase
     public override void Created()
     {
         missionType = MissionType.TotalMeters;
-        int[] maxValues = { 100, 200, 300, 400, 500 };
+        int[] maxValues = { 750, 1000, 1250, 1500, 1750 };
         int randomMaxValue = Random.Range(0, maxValues.Length);
-        int[] rewards = { 100, 200, 300, 400, 500 };
+        int[] rewards = { 300, 400, 500, 600, 700 };
         reward = rewards[randomMaxValue];
         max = maxValues[randomMaxValue];
         progress = 0;
@@ -103,9 +103,9 @@ public class NectarSingleRun : MissionBase
     public override void Created()
     {
         missionType = MissionType.NectarSingleRun;
-        int[] maxValues = { 10, 20, 30};
+        int[] maxValues = { 50, 75, 100, 150, 200};
         int randomMaxValue = Random.Range(0, maxValues.Length);
-        int[] rewards = { 100, 200, 300, 400, 500 };
+        int[] rewards = { 100, 150, 200, 250, 300 };
         reward = rewards[randomMaxValue];
         max = maxValues[randomMaxValue];
         progress = 0;
@@ -113,7 +113,7 @@ public class NectarSingleRun : MissionBase
 
     public override string GetMissionDescription()
     {
-        return $"colete {max} nectars em uma corrida";
+        return $"colete o total de {max} nectares ";
     }
 
     public override void RunStart()
