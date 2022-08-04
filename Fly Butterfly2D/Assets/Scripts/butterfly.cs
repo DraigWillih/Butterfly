@@ -1,10 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using TMPro;
 
 public class butterfly : MonoBehaviour
 {
+<<<<<<< HEAD
+    private GameController gameController;
+
+    public float score;
+
+    public int nectar;
+    public TextMeshProUGUI nectarText;
+
+=======
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
     public float speed = 1f;
     private Rigidbody2D rig;
     private bool is_collect;
@@ -38,6 +49,10 @@ public class butterfly : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+<<<<<<< HEAD
+            nectar++;
+            nectarText.text = nectar.ToString();        
+=======
         if (is_collect == false)
         {
             is_collect = true;
@@ -45,6 +60,7 @@ public class butterfly : MonoBehaviour
             GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
             StartCoroutine(Collect());
         }
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
     }
 
     public void LoadScenes(string cena)

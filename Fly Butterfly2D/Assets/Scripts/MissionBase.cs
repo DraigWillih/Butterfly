@@ -15,6 +15,7 @@ public abstract class MissionBase : MonoBehaviour
     public int reward;
     public butterfly butterfly;
     public int currentProgress;
+    public MissionType missionType;
 
     public abstract void Created();
     public abstract string GetMissionDescription();
@@ -38,6 +39,7 @@ public class SingleRun : MissionBase
 {
     public override void Created()
     {
+        missionType = MissionType.SingleRun;
         int[] maxValues = {100,200,200,400,500};
         int randomMaxValue = Random.Range(0, maxValues.Length);
         int[] rewards = { 10, 20, 30, 40, 50 };
@@ -69,6 +71,7 @@ public class TotalMeters : MissionBase
 {
     public override void Created()
     {
+        missionType = MissionType.TotalMeters;
         int[] maxValues = { 100, 200, 300, 400, 500 };
         int randomMaxValue = Random.Range(0, maxValues.Length);
         int[] rewards = { 100, 200, 300, 400, 500 };
@@ -99,6 +102,7 @@ public class NectarSingleRun : MissionBase
 {
     public override void Created()
     {
+        missionType = MissionType.NectarSingleRun;
         int[] maxValues = { 10, 20, 30};
         int randomMaxValue = Random.Range(0, maxValues.Length);
         int[] rewards = { 100, 200, 300, 400, 500 };
@@ -121,7 +125,11 @@ public class NectarSingleRun : MissionBase
     public override void Update()
     {
         if (butterfly == null) return;
+<<<<<<< HEAD
+        progress = (int)butterfly.nectar;
+=======
         progress = (int)GameController.instance.nectar_current;
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
     }
 }
 

@@ -10,6 +10,8 @@ public class MissionController : MonoBehaviour
 	public TMP_Text[] missionDescription, missionReward, missionProgress;
 	public GameObject[] RecompensaBtn;
 	private GameController gameController;
+
+	public TextMeshProUGUI nectarText;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,4 +38,17 @@ public class MissionController : MonoBehaviour
 			}
 		}
 	}
+
+	public void UpdateCoins(int coins)
+    {
+		nectarText.text = coins.ToString();
+    }
+	
+	public void PegarRecompensa(int missionIndex)
+    {
+		GameController.gc.nectar += GameController.gc.GetMission(missionIndex).reward;
+		UpdateCoins(GameController.gc.nectar);
+		RecompensaBtn[missionIndex].SetActive(false);
+		GameController.gc.GenerateMission(missionIndex);
+    }
 }
