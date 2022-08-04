@@ -17,6 +17,7 @@ public class MissionController : MonoBehaviour
 		gameController = FindObjectOfType(typeof(GameController)) as GameController;
 		SetMission();
 		GameController.instance.nectarText = nectarText;
+		GameController.instance.UpdateHUD();
     }
 
 	public void SetMission()

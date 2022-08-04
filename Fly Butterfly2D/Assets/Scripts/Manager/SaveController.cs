@@ -8,9 +8,8 @@ public class SaveController : MonoBehaviour
     private SaveData data;
     private string path;
 
-    private void Start()
+    private void Awake()
     {
-        GameController.instance.data = this;
         data = new SaveData();
         path = Application.persistentDataPath + "/data.json";
         SaveMission();
@@ -34,7 +33,7 @@ public class SaveController : MonoBehaviour
     {
         string json = File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(json, data);
-        GameController.instance.nectar_current = data.nectar;
+        GameController.instance.nectar_max = data.nectar;
     }
 }
 

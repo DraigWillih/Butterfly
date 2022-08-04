@@ -13,10 +13,12 @@ public class GameController : MonoBehaviour
 
     public TMP_Text nectarText;
 
-    private float nectar_max;
+    [HideInInspector]
+    public float nectar_max;
     [HideInInspector]
     public float nectar_current;
-    private float score_max;
+    [HideInInspector]
+    public float score_max;
     [HideInInspector]
     public float score_current;
     [HideInInspector]
@@ -37,8 +39,10 @@ public class GameController : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        data = GetComponent<SaveController>();
         missions = new MissionBase[2];
         id_mission = new int[2];
+
         for (int i = 0; i < missions.Length; i++)
         {
             GameObject newMission = new GameObject("Mission" + i);
@@ -66,7 +70,13 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         data.Load();
-        nectarText.text = nectar_current.ToString("N0");
+        print(nectar_max);
+        UpdateHUD();
+    }
+
+    public void UpdateHUD()
+    {
+        nectarText.text = nectar_max.ToString("N0");
     }
 
     public void RestartGame()
