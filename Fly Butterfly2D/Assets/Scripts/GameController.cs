@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -19,20 +20,51 @@ public class PlayerData
     public int[] reward;
     public string[] missionType;
 }
+=======
+using TMPro;
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
 
 public class GameController : MonoBehaviour
 {
-    public static GameController gc;
+    public static GameController instance;
 
+<<<<<<< HEAD
     public int nectar;
 
     private MissionBase[] missions;
+=======
+    //public int nectar;
+    public TMP_Text nectarText;
+
+    private MissionBase[] missions;
+
+    private float nectar_max;
+    [HideInInspector]
+    public float nectar_current;
+    private float score_max;
+    [HideInInspector]
+    public float score_current;
+    [HideInInspector]
+    public SaveController data;
+    [HideInInspector]
+    public AdsManager ads;
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
 
     private string filePath;
 
     
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
         missions = new MissionBase[2];
         for (int i = 0; i < missions.Length; i++)
         {
@@ -40,7 +72,7 @@ public class GameController : MonoBehaviour
             newMission.transform.SetParent(transform);
             MissionType[] missionType = { MissionType.SingleRun, MissionType.NectarSingleRun, MissionType.TotalMeters };
             int randomType = Random.Range(0, missionType.Length);
-            if(randomType == (int)MissionType.SingleRun)
+            if (randomType == (int)MissionType.SingleRun)
             {
                 missions[i] = newMission.AddComponent<SingleRun>();
             }
@@ -52,23 +84,25 @@ public class GameController : MonoBehaviour
             {
                 missions[i] = newMission.AddComponent<NectarSingleRun>();
             }
+<<<<<<< HEAD
             missions[i].Created();            
+=======
+            missions[i].Created();
+>>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
         }
         filePath = Application.persistentDataPath + "/playerInfo.dat";
     }
 
-    private void Start()
+    public void RestartGame()
     {
+        SceneManager.LoadScene("Gameplay");
         Time.timeScale = 1;
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(0);
-    }
     public void LoadScenes(string cena)
     {
         SceneManager.LoadScene(cena);
+        Time.timeScale = 1;
     }
 
     public MissionBase GetMission(int index)

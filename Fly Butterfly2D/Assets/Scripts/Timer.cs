@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeLevel;
-    public TextMeshProUGUI timeLevelTxt;
+    public TMP_Text timeLevelTxt;
     public static bool stopTime;
 
     private GameController gameController;
@@ -22,14 +20,13 @@ public class Timer : MonoBehaviour
     void Update()
     {
         Score();
-        
     }
     public void Score()
     {
         if (stopTime == false)
         {
-            timeLevel = timeLevel + Time.deltaTime;
-            timeLevelTxt.text = timeLevel.ToString("F0");
+            GameController.instance.score_current = GameController.instance.score_current + Time.deltaTime;
+            timeLevelTxt.text = GameController.instance.score_current.ToString("F0");
         }
     }
 }
