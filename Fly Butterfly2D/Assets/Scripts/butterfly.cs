@@ -23,6 +23,7 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(false);
         rig = GetComponent<Rigidbody2D>();
         GameController.instance.nectarText = nectarText;
+        GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString("N0");
         GameController.instance.StartMission();
         audioSfx = GetComponent<AudioSource>();
     }
@@ -41,7 +42,8 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(true);
         Time.timeScale = 0;
         Timer.stopTime = true;
-        GameController.instance.data.Save(GameController.instance.nectar_current);
+        GameController.instance.nectar_max += GameController.instance.nectar_current;
+        GameController.instance.data.Save(GameController.instance.nectar_max);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }
