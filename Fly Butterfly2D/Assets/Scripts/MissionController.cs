@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class MissionController : MonoBehaviour
@@ -17,6 +16,12 @@ public class MissionController : MonoBehaviour
     {
 		gameController = FindObjectOfType(typeof(GameController)) as GameController;
 		SetMission();
+		GameController.instance.nectarText = nectarText;
+    }
+
+	public void UpdateNectar(int nectar)
+    {
+		nectarText.text = nectar.ToString();
     }
 
 	public void SetMission()
@@ -34,16 +39,11 @@ public class MissionController : MonoBehaviour
 		}
 	}
 
-	public void UpdateCoins(int coins)
+	public void PegarRecompensa(int missionIndex)
     {
-		nectarText.text = coins.ToString();
-    }
-	
-	/*public void PegarRecompensa(int missionIndex)
-    {
-		GameController.gc.nectar += GameController.gc.GetMission(missionIndex).reward;
-		UpdateCoins(GameController.gc.nectar);
+		GameController.instance.nectar_current += GameController.instance.GetMission(missionIndex).reward;
+		UpdateNectar(GameController.instance.nectar_current);
 		RecompensaBtn[missionIndex].SetActive(false);
-		GameController.gc.GenerateMission(missionIndex);
-    }*/
+		GameController.instance.GenerateMission(missionIndex);
+    }
 }

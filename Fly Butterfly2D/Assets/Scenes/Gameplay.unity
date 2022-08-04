@@ -244,7 +244,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: b91a3cd6793235646a92c9e042d02c72, type: 2}
   m_audioClip: {fileID: 8300000, guid: 37ad35aca99d08349969382fa2ccac7a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.511
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -371,6 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64fda0d98d04b946a767547ae8b9a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missions: []
+  id_mission: 
   nectarText: {fileID: 0}
   nectar_current: 0
   score_current: 0
@@ -1954,7 +1956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.81100005}
   m_AnchorMax: {x: 0.15827766, y: 0.8997813}
-  m_AnchoredPosition: {x: -0.86001587, y: 1.9899902}
+  m_AnchoredPosition: {x: -0.85998535, y: 1.9899902}
   m_SizeDelta: {x: -1.7199554, y: -3.9799957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1245473175
@@ -2658,19 +2660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
       propertyPath: m_Size.x
-      value: 87.30911
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
-      propertyPath: m_Size.y
-      value: 85.05255
+      value: 85.73349
       objectReference: {fileID: 0}
     - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
       propertyPath: m_Offset.x
-      value: -9.484467
-      objectReference: {fileID: 0}
-    - target: {fileID: 1399231676515954033, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
-      propertyPath: m_Offset.y
-      value: 6.9233704
+      value: -10.272278
       objectReference: {fileID: 0}
     - target: {fileID: 3826781602819633175, guid: 37c1252f02ef7564d9a84996acad52ce, type: 3}
       propertyPath: m_RootOrder
@@ -3254,7 +3248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1951859411}
   - component: {fileID: 1951859410}
-  - component: {fileID: 1951859412}
   - component: {fileID: 1951859413}
   m_Layer: 0
   m_Name: SceneController
@@ -3289,18 +3282,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1951859412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1951859409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd038aeeaa8b7f4abf4ad6f421ec208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1951859413
 MonoBehaviour:
   m_ObjectHideFlags: 0

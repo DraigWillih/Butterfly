@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   RecompensaBtn:
   - {fileID: 509738982}
   - {fileID: 1393205735}
+  nectarText: {fileID: 1960270343}
 --- !u!4 &106998609
 Transform:
   m_ObjectHideFlags: 0
@@ -2261,7 +2262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15200001, y: 0.5881199}
   m_AnchorMax: {x: 0.8615844, y: 1}
-  m_AnchoredPosition: {x: 0.6279907, y: -0.31600952}
+  m_AnchoredPosition: {x: 0.6279297, y: -0.31600952}
   m_SizeDelta: {x: -0.76000977, y: -3.5690002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &287324220
@@ -3619,7 +3620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.656, y: 0.039736096}
   m_AnchorMax: {x: 1, y: 0.47019792}
-  m_AnchoredPosition: {x: -0.8999939, y: 0.49279785}
+  m_AnchoredPosition: {x: -0.8999634, y: 0.49279785}
   m_SizeDelta: {x: -1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509738984
@@ -3665,7 +3666,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 509738985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 106998608}
+        m_TargetAssemblyTypeName: MissionController, Assembly-CSharp
+        m_MethodName: PegarRecompensa
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &509738985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4139,7 +4152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.09374075}
-  m_AnchoredPosition: {x: -0.49804688, y: -4.3565674}
+  m_AnchoredPosition: {x: -0.49804688, y: -4.3564453}
   m_SizeDelta: {x: -0.049987793, y: 6.713196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &548246662
@@ -7751,7 +7764,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.0805625}
   m_AnchorMax: {x: 0.9941668, y: 0.8554376}
-  m_AnchoredPosition: {x: 1.578125, y: 0.6887207}
+  m_AnchoredPosition: {x: 1.59375, y: 0.6887207}
   m_SizeDelta: {x: 3.1609993, y: -1.9899998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103395392
@@ -8216,7 +8229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15200001, y: 0.5881199}
   m_AnchorMax: {x: 0.8615844, y: 1}
-  m_AnchoredPosition: {x: 0.6279907, y: -0.31600952}
+  m_AnchoredPosition: {x: 0.6279297, y: -0.31600952}
   m_SizeDelta: {x: -0.76000977, y: -3.5690002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1237256827
@@ -9260,7 +9273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09271716, y: 0.147}
   m_AnchorMax: {x: 0.92700005, y: 0.48800004}
-  m_AnchoredPosition: {x: 0.08337402, y: 1.5000305}
+  m_AnchoredPosition: {x: 0.08337402, y: 1.500061}
   m_SizeDelta: {x: -1.1604996, y: 0.32910156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363375969
@@ -9576,7 +9589,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1393205737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 106998608}
+        m_TargetAssemblyTypeName: MissionController, Assembly-CSharp
+        m_MethodName: PegarRecompensa
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1393205737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9632,7 +9657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65675086, y: 0.042658508}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.19999695, y: 0.91139984}
+  m_AnchoredPosition: {x: 0.2000122, y: 0.9114075}
   m_SizeDelta: {x: -1, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1413645996
@@ -9720,6 +9745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430815340}
   - component: {fileID: 1430815339}
+  - component: {fileID: 1430815341}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -9739,6 +9765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64fda0d98d04b946a767547ae8b9a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missions: []
+  id_mission: 
   nectarText: {fileID: 0}
   nectar_current: 0
   score_current: 0
@@ -9758,6 +9786,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430815341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430815338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd038aeeaa8b7f4abf4ad6f421ec208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1458101158
 GameObject:
   m_ObjectHideFlags: 0
@@ -12856,7 +12896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 120.47266, y: -135.01463}
+  m_AnchoredPosition: {x: 120.47266, y: -135.01465}
   m_SizeDelta: {x: -243.4053, y: -283.3564}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1992984731
