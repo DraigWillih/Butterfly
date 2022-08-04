@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class MissionController : MonoBehaviour
@@ -17,6 +16,7 @@ public class MissionController : MonoBehaviour
     {
 		gameController = FindObjectOfType(typeof(GameController)) as GameController;
 		SetMission();
+		GameController.instance.nectarText = nectarText;
     }
 
 	public void SetMission()

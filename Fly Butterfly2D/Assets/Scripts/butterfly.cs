@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class butterfly : MonoBehaviour
 {
@@ -26,7 +25,6 @@ public class butterfly : MonoBehaviour
         GameController.instance.nectarText = nectarText;
         GameController.instance.StartMission();
         audioSfx = GetComponent<AudioSource>();
-
     }
 
     // Update is called once per frame
@@ -43,7 +41,7 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(true);
         Time.timeScale = 0;
         Timer.stopTime = true;
-        GameController.instance.data.Save(GameController.instance.nectar_current, GameController.instance.score_current);
+        GameController.instance.data.Save(GameController.instance.nectar_current);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }
