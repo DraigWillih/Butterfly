@@ -4,28 +4,30 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    private float lenght;
-    private float startPos;
-    private Transform cam;
+    private Renderer mesh_render;
+    private Material current_material;
 
-    public float parallaxEffect;
+    private float offset;
+
+    public float increment_offset;
+    public float speed;
+    public string sorting_layer;
+    public int order_layer;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        startPos = transform.position.x;
-        lenght = GetComponent<SpriteRenderer>().bounds.size.x;
-        cam = Camera.main.transform;
+        mesh_render = GetComponent<MeshRenderer>();
+        mesh_render.sortingLayerName = sorting_layer;
+        mesh_render.sortingOrder = order_layer;
+        current_material = mesh_render.material;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float rePos = cam.transform.position.x * (1 - parallaxEffect);
-        float Distance = cam.transform.position.x * parallaxEffect;
-
-        transform.position = new Vector3(startPos + Distance, transform.position.y, transform.position.z);
-
-        if(rePos > startPos + lenght) { startPos += lenght; }
+        offset += increment_offset;
+        current_material.SetTextureOffset("_MainTex", new Vector2(offset * speed, 0));
     }
 }

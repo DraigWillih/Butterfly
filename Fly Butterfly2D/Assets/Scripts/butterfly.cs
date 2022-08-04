@@ -7,6 +7,7 @@ public class butterfly : MonoBehaviour
 {
     public float speed = 1f;
     private Rigidbody2D rig;
+    private bool is_collect;
 
     public GameObject GameOver;
     public TMP_Text nectarText;
@@ -20,7 +21,7 @@ public class butterfly : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()        
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -37,8 +38,13 @@ public class butterfly : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameController.instance.nectar_current++;
-        GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
+        if (is_collect == false)
+        {
+            is_collect = true;
+            GameController.instance.nectar_current++;
+            GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
+            StartCoroutine(Collect());
+        }
     }
 
     public void LoadScenes(string cena)
@@ -46,9 +52,10 @@ public class butterfly : MonoBehaviour
         GameController.instance.LoadScenes(cena);
     }
 
-    IEnumerator closeGameOver()
+    IEnumerator Collect()
     {
-        yield return 1f;
+        yield return new WaitForSeconds(2);
+        is_collect = false;
     }
 
 }
