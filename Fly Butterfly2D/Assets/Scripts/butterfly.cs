@@ -7,7 +7,6 @@ public class butterfly : MonoBehaviour
 {
     public float speed = 1f;
     private Rigidbody2D rig;
-    private bool is_collect;
 
     public GameObject GameOver;
     public TMP_Text nectarText;
@@ -38,24 +37,13 @@ public class butterfly : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (is_collect == false)
-        {
-            is_collect = true;
-            GameController.instance.nectar_current++;
-            GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
-            StartCoroutine(Collect());
-        }
+        GameController.instance.nectar_current++;
+        GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString();
+        Destroy(collision.gameObject);
     }
 
     public void LoadScenes(string cena)
     {
         GameController.instance.LoadScenes(cena);
     }
-
-    IEnumerator Collect()
-    {
-        yield return new WaitForSeconds(2);
-        is_collect = false;
-    }
-
 }
