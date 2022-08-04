@@ -39,11 +39,11 @@ public class MissionController : MonoBehaviour
 		nectarText.text = coins.ToString();
     }
 	
-	public void PegarRecompensa(int missionIndex)
+	/*public void PegarRecompensa(int missionIndex)
     {
 		GameController.gc.nectar += GameController.gc.GetMission(missionIndex).reward;
 		UpdateCoins(GameController.gc.nectar);
 		RecompensaBtn[missionIndex].SetActive(false);
 		GameController.gc.GenerateMission(missionIndex);
-    }
+    }*/
 }

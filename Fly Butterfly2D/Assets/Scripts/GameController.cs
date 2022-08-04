@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-<<<<<<< HEAD
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -20,23 +19,14 @@ public class PlayerData
     public int[] reward;
     public string[] missionType;
 }
-=======
-using TMPro;
->>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-<<<<<<< HEAD
-    public int nectar;
-
     private MissionBase[] missions;
-=======
-    //public int nectar;
+
     public TMP_Text nectarText;
-
-    private MissionBase[] missions;
 
     private float nectar_max;
     [HideInInspector]
@@ -48,7 +38,6 @@ public class GameController : MonoBehaviour
     public SaveController data;
     [HideInInspector]
     public AdsManager ads;
->>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
 
     private string filePath;
 
@@ -84,11 +73,7 @@ public class GameController : MonoBehaviour
             {
                 missions[i] = newMission.AddComponent<NectarSingleRun>();
             }
-<<<<<<< HEAD
             missions[i].Created();            
-=======
-            missions[i].Created();
->>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
         }
         filePath = Application.persistentDataPath + "/playerInfo.dat";
     }
@@ -149,7 +134,7 @@ public class GameController : MonoBehaviour
 
         PlayerData data = new PlayerData();
 
-        data.nectar = nectar;
+        //data.nectar = nectar;
 
         data.max = new int[2];
         data.progress = new int[2];

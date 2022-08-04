@@ -125,11 +125,7 @@ public class NectarSingleRun : MissionBase
     public override void Update()
     {
         if (butterfly == null) return;
-<<<<<<< HEAD
-        progress = (int)butterfly.nectar;
-=======
         progress = (int)GameController.instance.nectar_current;
->>>>>>> f05da8ad0ffc11422a59a2bfa8eccb0c79d8d266
     }
 }
 
