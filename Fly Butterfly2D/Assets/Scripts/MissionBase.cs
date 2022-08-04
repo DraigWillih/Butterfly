@@ -48,7 +48,7 @@ public class SingleRun : MissionBase
 
     public override string GetMissionDescription()
     {
-        return "Voe" + max + "m em uma fase";
+        return $"Voe {max}m em uma fase";
     }
 
     public override void RunStart()
@@ -79,7 +79,7 @@ public class TotalMeters : MissionBase
 
     public override string GetMissionDescription()
     {
-        return "Voe" + max + "m no total";
+        return $"Voe {max}m no total";
     }
 
     public override void RunStart()
@@ -109,7 +109,7 @@ public class NectarSingleRun : MissionBase
 
     public override string GetMissionDescription()
     {
-        return "colete" + max + "nectars em uma corrida";
+        return $"colete {max}nectars em uma corrida";
     }
 
     public override void RunStart()

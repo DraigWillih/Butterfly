@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637951648426715809
-    m_Hash: 1188944793
+      ticks: 637952109177040959
+    m_Hash: 3726091672
   m_LockFileStatus:
     m_FilePath: C:/Users/Fred/Documents/Projetos Unity/Nova pasta/Butterfly/Fly Butterfly2D/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637951648426825821
-    m_Hash: 1894231842
+      ticks: 637952109177051022
+    m_Hash: 2776817409
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
