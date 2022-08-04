@@ -209,7 +209,7 @@ m_PackageAssets:
         email: 
         url: 
       category: 
-      type: 
+      type: tool
       description: 'The 2D Pixel Perfect package contains the Pixel Perfect Camera
         component which ensures your pixel art remains crisp and clear at different
         resolutions, and stable in motion.
@@ -3506,4 +3506,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: D:/Projects Unity/Butterfly/Fly Butterfly2D/Packages
-m_EditorVersion: 2020.3.36f1 (71f96b79b9f0)
+m_EditorVersion: 2020.3.37f1 (8c66806a0c04)

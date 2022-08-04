@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class butterfly : MonoBehaviour
 {
     private GameController gameController;
 
-    public float Nectar;
     public float score;
-        
+
+    public int nectar;
+    public TextMeshProUGUI nectarText;
+
     public float speed = 1f;
     private Rigidbody2D rig;
 
@@ -40,8 +43,8 @@ public class butterfly : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameController.nectar++;
-        gameController.nectarText.text = gameController.nectar.ToString();
+            nectar++;
+            nectarText.text = nectar.ToString();        
     }
 
     IEnumerator closeGameOver()
