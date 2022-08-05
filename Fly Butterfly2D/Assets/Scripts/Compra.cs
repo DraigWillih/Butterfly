@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Compra : MonoBehaviour
 {
-
     public List<GameObject> valoresBorboletas = new List<GameObject>();
     public Animator[] anim;
     public Animator butterfly;
@@ -42,7 +41,8 @@ public class Compra : MonoBehaviour
             GameController.instance.UpdateHUD();
             temp.text = "equipar";
             GameController.instance.isBuying[id] = true;
-            GameController.instance.data.Save(GameController.instance.nectar_max);
+            GameController.instance.data.SaveCoin(GameController.instance.nectar_max);
+            GameController.instance.data.SavePurchase();
         }
     }
     public void CheckIsBuying()

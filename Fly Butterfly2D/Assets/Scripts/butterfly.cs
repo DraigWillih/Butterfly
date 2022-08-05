@@ -28,6 +28,7 @@ public class butterfly : MonoBehaviour
         GameController.instance.StartMission();
         audioSfx = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        GameController.instance.butterfly = anim;
         anim.runtimeAnimatorController = GameController.instance.anim_Current.runtimeAnimatorController;
     }
 
@@ -46,7 +47,7 @@ public class butterfly : MonoBehaviour
         Time.timeScale = 0;
         Timer.stopTime = true;
         GameController.instance.nectar_max += GameController.instance.nectar_current;
-        GameController.instance.data.Save(GameController.instance.nectar_max);
+        GameController.instance.data.SaveCoin(GameController.instance.nectar_max);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }
