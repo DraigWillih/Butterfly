@@ -1,37 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
-using System;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
-using Random = UnityEngine.Random;
-
-[Serializable]
-public class PlayerData
-{
-    public int nectar;
-    public int[] max; //maximo da missão
-    public int[] progress;
-    public int[] currentProgress;
-    public int[] reward;
-    public string[] missionType;
-}
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-
-    private MissionBase[] missions;
+    [HideInInspector]
+    public MissionBase[] missions;
+    [HideInInspector]
+    public int[] id_mission;
+    private int id_current;
 
     public TMP_Text nectarText;
 
-    private float nectar_max;
+    [HideInInspector]
+    public float nectar_max;
     [HideInInspector]
     public float nectar_current;
-    private float score_max;
+    [HideInInspector]
+    public float score_max;
     [HideInInspector]
     public float score_current;
     [HideInInspector]
@@ -39,9 +27,13 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public AdsManager ads;
 
-    private string filePath;
-
     
+    public Animator anim_Current;
+    public Animator butterfly;
+    public bool[] isBuying;
+   
+    
+
     private void Awake()
     {
         if (instance == null)
@@ -54,7 +46,10 @@ public class GameController : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+        data = GetComponent<SaveController>();
         missions = new MissionBase[2];
+        id_mission = new int[2];
+
         for (int i = 0; i < missions.Length; i++)
         {
             GameObject newMission = new GameObject("Mission" + i);
@@ -73,9 +68,23 @@ public class GameController : MonoBehaviour
             {
                 missions[i] = newMission.AddComponent<NectarSingleRun>();
             }
-            missions[i].Created();            
+            missions[i].Created();
+            id_mission[i] = id_current;
+            id_current++;
         }
-        filePath = Application.persistentDataPath + "/playerInfo.dat";
+        
+    }
+
+    private void Start()
+    {
+        data.Load();
+        print(nectar_max);
+        UpdateHUD();
+    }
+
+    public void UpdateHUD()
+    {
+        nectarText.text = nectar_max.ToString("N0");
     }
 
     public void RestartGame()
@@ -125,33 +134,5 @@ public class GameController : MonoBehaviour
         missions[index].Created();
 
         FindObjectOfType<MissionController>().SetMission();
-    }
-
-    public void save()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(filePath);
-
-        PlayerData data = new PlayerData();
-
-        //data.nectar = nectar;
-
-        data.max = new int[2];
-        data.progress = new int[2];
-        data.currentProgress = new int[2];
-        data.reward = new int[2];
-        data.missionType = new string[2];
-
-        for (int i = 0; i < 2; i++)
-        {
-            data.max[i] = missions[i].max;
-            data.progress[i] = missions[i].progress;
-            data.currentProgress[i] = missions[i].currentProgress;
-            data.reward[i] = missions[i].reward;
-            data.missionType[i] = missions[i].missionType.ToString();
-        }
-
-        bf.Serialize(file, data);
-        file.Close();
     }
 }

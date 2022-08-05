@@ -118,9 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad595b6ec35e26240b1b886d85be92d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  nectar: 0
-  nectarText: {fileID: 0}
   speed: 110
   GameOver: {fileID: 0}
   textNectar: {fileID: 0}
@@ -162,7 +159,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.651161, y: 1.8863487}
+  m_Offset: {x: -10.272278, y: 6.9233704}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -173,7 +170,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 123.19771, y: 122.829994}
+  m_Size: {x: 85.73349, y: 85.05255}
   m_EdgeRadius: 0
 --- !u!82 &1005775670897858124
 AudioSource:

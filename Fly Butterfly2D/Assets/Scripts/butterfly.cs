@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using TMPro;
 
 public class butterfly : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class butterfly : MonoBehaviour
 
     public AudioClip[] soundFx;
     private AudioSource audioSfx;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +24,11 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(false);
         rig = GetComponent<Rigidbody2D>();
         GameController.instance.nectarText = nectarText;
+        GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString("N0");
         GameController.instance.StartMission();
         audioSfx = GetComponent<AudioSource>();
-
+        anim = GetComponent<Animator>();
+        anim.runtimeAnimatorController = GameController.instance.anim_Current.runtimeAnimatorController;
     }
 
     // Update is called once per frame
@@ -43,7 +45,8 @@ public class butterfly : MonoBehaviour
         GameOver.SetActive(true);
         Time.timeScale = 0;
         Timer.stopTime = true;
-        GameController.instance.data.Save(GameController.instance.nectar_current, GameController.instance.score_current);
+        GameController.instance.nectar_max += GameController.instance.nectar_current;
+        GameController.instance.data.Save(GameController.instance.nectar_max);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }
