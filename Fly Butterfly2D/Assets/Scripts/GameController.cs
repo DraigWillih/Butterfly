@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
@@ -31,8 +32,11 @@ public class GameController : MonoBehaviour
     public Animator anim_Current;
     public Animator butterfly;
     public bool[] isBuying;
-   
-    
+
+    public GameObject panelFadeIn;
+    public Animator animFade;
+    public string scene;
+    public float timeLoad;
 
     private void Awake()
     {
@@ -80,6 +84,13 @@ public class GameController : MonoBehaviour
         data.Load();
         print(nectar_max);
         UpdateHUD();
+        scene = SceneManager.GetActiveScene().name;
+        if(scene == "Start")
+        {
+            panelFadeIn = GameObject.FindWithTag("FadeIn");
+            animFade = panelFadeIn.GetComponent<Animator>();
+            panelFadeIn.SetActive(false);
+        }
     }
 
     public void UpdateHUD()
@@ -91,6 +102,12 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay");
         Time.timeScale = 1;
+    }
+
+    public void FadeInScene()
+    {
+        panelFadeIn.SetActive(true);
+        StartCoroutine(NextScene());
     }
 
     public void LoadScenes(string cena)
@@ -134,5 +151,10 @@ public class GameController : MonoBehaviour
         missions[index].Created();
 
         FindObjectOfType<MissionController>().SetMission();
+    }
+    IEnumerator NextScene()
+    {
+        yield return new WaitForSeconds(timeLoad);
+        LoadScenes("GamePlay");
     }
 }
