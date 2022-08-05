@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GameController : MonoBehaviour
     public MissionBase[] missions;
     [HideInInspector]
     public int[] id_mission;
-    private int id_current;
+    [HideInInspector]
+    public int id_current;
 
     public TMP_Text nectarText;
 
@@ -17,15 +19,22 @@ public class GameController : MonoBehaviour
     public float nectar_max;
     [HideInInspector]
     public float nectar_current;
-    [HideInInspector]
+    //[HideInInspector]
     public float score_max;
-    [HideInInspector]
+    //[HideInInspector]
     public float score_current;
     [HideInInspector]
     public SaveController data;
     [HideInInspector]
     public AdsManager ads;
+    [HideInInspector]
+    public bool is_mission;
 
+
+    [Header("---Controle de skin---")]
+    public Animator anim_Current;
+    public Animator butterfly;
+    public bool[] isBuying;
 
     private void Awake()
     {
@@ -40,37 +49,42 @@ public class GameController : MonoBehaviour
         }
 
         data = GetComponent<SaveController>();
-        missions = new MissionBase[2];
-        id_mission = new int[2];
-
-        for (int i = 0; i < missions.Length; i++)
-        {
-            GameObject newMission = new GameObject("Mission" + i);
-            newMission.transform.SetParent(transform);
-            MissionType[] missionType = { MissionType.SingleRun, MissionType.NectarSingleRun, MissionType.TotalMeters };
-            int randomType = Random.Range(0, missionType.Length);
-            if (randomType == (int)MissionType.SingleRun)
-            {
-                missions[i] = newMission.AddComponent<SingleRun>();
-            }
-            else if (randomType == (int)MissionType.TotalMeters)
-            {
-                missions[i] = newMission.AddComponent<TotalMeters>();
-            }
-            else if (randomType == (int)MissionType.NectarSingleRun)
-            {
-                missions[i] = newMission.AddComponent<NectarSingleRun>();
-            }
-            missions[i].Created();
-            id_mission[i] = id_current;
-            id_current++;
-        }
     }
 
     private void Start()
     {
-        data.Load();
-        print(nectar_max);
+        // só entra caso ñ tenha missão
+        if (is_mission == false)
+        {
+            missions = new MissionBase[2];
+            id_mission = new int[2];
+
+            for (int i = 0; i < missions.Length; i++)
+            {
+                GameObject newMission = new GameObject("Mission" + i);
+                newMission.transform.SetParent(transform);
+                MissionType[] missionType = { MissionType.SingleRun, MissionType.NectarSingleRun, MissionType.TotalMeters };
+                int randomType = Random.Range(0, missionType.Length);
+                if (randomType == (int)MissionType.SingleRun)
+                {
+                    missions[i] = newMission.AddComponent<SingleRun>();
+                }
+                else if (randomType == (int)MissionType.TotalMeters)
+                {
+                    missions[i] = newMission.AddComponent<TotalMeters>();
+                }
+                else if (randomType == (int)MissionType.NectarSingleRun)
+                {
+                    missions[i] = newMission.AddComponent<NectarSingleRun>();
+                }
+                missions[i].Created();
+                id_mission[i] = id_current;
+                data.SaveMission(id_current, missions[i].max, missions[i].progress, missions[i].reward, missions[i].missionType, missions[i].GetMissionComplete());
+                id_current++;
+            }
+        }
+
+        data.LoadCoin();
         UpdateHUD();
     }
 
