@@ -13,6 +13,7 @@ public class butterfly : MonoBehaviour
 
     public AudioClip[] soundFx;
     private AudioSource audioSfx;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,8 @@ public class butterfly : MonoBehaviour
         GameController.instance.nectarText.text = GameController.instance.nectar_current.ToString("N0");
         GameController.instance.StartMission();
         audioSfx = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+        anim.runtimeAnimatorController = GameController.instance.anim_Current.runtimeAnimatorController;
     }
 
     // Update is called once per frame

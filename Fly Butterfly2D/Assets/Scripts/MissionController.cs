@@ -11,6 +11,8 @@ public class MissionController : MonoBehaviour
 	private GameController gameController;
 
 	public TextMeshProUGUI nectarText;
+	
+
     // Start is called before the first frame update
     void Start()
     {

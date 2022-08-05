@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -26,6 +27,12 @@ public class GameController : MonoBehaviour
     [HideInInspector]
     public AdsManager ads;
 
+    
+    public Animator anim_Current;
+    public Animator butterfly;
+    public bool[] isBuying;
+   
+    
 
     private void Awake()
     {
@@ -65,6 +72,7 @@ public class GameController : MonoBehaviour
             id_mission[i] = id_current;
             id_current++;
         }
+        
     }
 
     private void Start()
