@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameController : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class GameController : MonoBehaviour
     public Animator butterfly;
     public bool[] isBuying;
 
+
+
     private void Awake()
     {
         if (instance == null)
@@ -53,7 +56,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        // só entra caso ñ tenha missão
+        // sï¿½ entra caso ï¿½ tenha missï¿½o
         if (is_mission == false)
         {
             missions = new MissionBase[2];
@@ -86,6 +89,7 @@ public class GameController : MonoBehaviour
 
         data.LoadCoin();
         UpdateHUD();
+
     }
 
     public void UpdateHUD()
@@ -98,6 +102,8 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("Gameplay");
         Time.timeScale = 1;
     }
+
+
 
     public void LoadScenes(string cena)
     {
