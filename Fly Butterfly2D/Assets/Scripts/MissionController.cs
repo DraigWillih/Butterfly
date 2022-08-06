@@ -14,9 +14,10 @@ public class MissionController : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(.3f);
 		GameController.instance.nectarText = nectarText;
 		GameController.instance.UpdateHUD();
+		GameController.instance.SetChild();
 		SetMission();
     }
 
@@ -33,6 +34,7 @@ public class MissionController : MonoBehaviour
 			missionDescription[i].text = missions.GetMissionDescription();
 			missionReward[i].text = $"Recompensa: {missions.reward}";
 			missionProgress[i].text = $"{missions.progress + missions.currentProgress} / {missions.max}";
+			print(missions);
 			if (missions.GetMissionComplete())
 			{
 				RecompensaBtn[i].SetActive(true);
@@ -43,9 +45,11 @@ public class MissionController : MonoBehaviour
 
 	public void PegarRecompensa(int missionIndex)
     {
-		GameController.instance.nectar_current += GameController.instance.GetMission(missionIndex).reward;
+		GameController.instance.nectar_max += GameController.instance.GetMission(missionIndex).reward;
+		GameController.instance.data.SaveCoin(GameController.instance.nectar_max);
 		UpdateNectar(GameController.instance.nectar_current);
 		RecompensaBtn[missionIndex].SetActive(false);
 		GameController.instance.GenerateMission(missionIndex);
+		GameController.instance.UpdateHUD();
     }
 }

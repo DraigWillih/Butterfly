@@ -33,12 +33,12 @@ public class Timer : MonoBehaviour
             is_finish = true;
             for (int i = 0; i < GameController.instance.missions.Length; i++)
             {
-                print(GameController.instance.missions[i].max);
                 if (GameController.instance.missions[i].missionType == MissionType.TotalMeters)
                 {
                     print("if");
                     GameController.instance.missions[i].progress += (int)GameController.instance.score_current;
                     print(GameController.instance.missions[i].progress);
+                    print(GameController.instance.missions[i].currentProgress);
                 }
                 else if (GameController.instance.missions[i].missionType == MissionType.NectarSingleRun)
                 {

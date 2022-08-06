@@ -62,8 +62,7 @@ public class SingleRun : MissionBase
     public override void Update()
     {
         if (butterfly == null) return;
-
-        progress = (int)GameController.instance.score_current;
+        //progress = (int)GameController.instance.score_current;
     }
 }
 
@@ -94,7 +93,7 @@ public class TotalMeters : MissionBase
     public override void Update()
     {
         if (butterfly == null) return;
-        currentProgress = (int)GameController.instance.score_current;
+        //currentProgress = (int)GameController.instance.score_current;
     }
 }
 
@@ -125,7 +124,7 @@ public class NectarSingleRun : MissionBase
     public override void Update()
     {
         if (butterfly == null) return;
-        progress = (int)GameController.instance.nectar_current;
+        //progress = (int)GameController.instance.nectar_current;
     }
 }
 

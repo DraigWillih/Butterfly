@@ -48,6 +48,8 @@ public class butterfly : MonoBehaviour
         Timer.stopTime = true;
         GameController.instance.nectar_max += GameController.instance.nectar_current;
         GameController.instance.data.SaveCoin(GameController.instance.nectar_max);
+        GameController.instance.data.SaveProgress(GameController.instance.id_mission[0], (int)GameController.instance.score_current);
+        GameController.instance.data.SaveProgress(GameController.instance.id_mission[1], (int)GameController.instance.score_current);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }

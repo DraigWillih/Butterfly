@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    [HideInInspector]
+    //[HideInInspector]
     public MissionBase[] missions;
     [HideInInspector]
     public int[] id_mission;
@@ -138,7 +138,17 @@ public class GameController : MonoBehaviour
             missions[index] = newMission.AddComponent<NectarSingleRun>();
         }
         missions[index].Created();
+        id_current++;
+        data.SaveMission(id_current, missions[index].max, missions[index].progress, missions[index].reward, missions[index].missionType, missions[index].GetMissionComplete());
 
         FindObjectOfType<MissionController>().SetMission();
+    }
+
+    public void SetChild()
+    {
+        for (int i = 0; i < missions.Length; i++)
+        {
+            missions[i] = transform.GetChild(i).GetComponentInChildren<MissionBase>();
+        }
     }
 }

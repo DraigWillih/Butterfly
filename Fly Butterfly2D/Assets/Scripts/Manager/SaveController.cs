@@ -99,6 +99,7 @@ public class SaveController : MonoBehaviour
         }
 
         GameController.instance.missions = new MissionBase[2];
+        GameController.instance.id_mission = new int[2];
 
         for (int i = 0; i < GameController.instance.missions.Length; i++)
         {
@@ -122,6 +123,7 @@ public class SaveController : MonoBehaviour
             GameController.instance.missions[i].reward = data.reward[i];
             GameController.instance.missions[i].progress = data.mission_current_progress[i];
             GameController.instance.missions[i].missionType = data.missionType[i];
+            GameController.instance.id_mission[i] = data.mission_id[i];
         }
     }
 
@@ -129,6 +131,14 @@ public class SaveController : MonoBehaviour
     public void SaveMissionComplete(int id, bool is_complete)
     {
         data.is_complete[id] = is_complete;
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(path, json);
+    }
+
+    // sobre escre se o progresso da missão 
+    public void SaveProgress(int id, int progress)
+    {
+        data.mission_current_progress[id] += progress;
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(path, json);
     }
