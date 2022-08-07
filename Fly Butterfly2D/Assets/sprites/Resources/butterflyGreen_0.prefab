@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 883882177956734263}
   - component: {fileID: 2962204532698268775}
   - component: {fileID: 5561671931420762622}
-  - component: {fileID: 559063678002411278}
   - component: {fileID: 5012638038512135438}
+  - component: {fileID: 6551782815887014423}
   m_Layer: 0
   m_Name: butterflyGreen_0
   m_TagString: Untagged
@@ -125,6 +125,7 @@ MonoBehaviour:
   soundFx:
   - {fileID: 8300000, guid: eb9bd5763b05d9d45be348dc15c5fc17, type: 3}
   - {fileID: 8300000, guid: fdc76496dcdad7d479b294917ccd0b14, type: 3}
+  anim: {fileID: 0}
 --- !u!50 &5561671931420762622
 Rigidbody2D:
   serializedVersion: 4
@@ -146,32 +147,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &559063678002411278
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883882177956734260}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -10.272278, y: 6.9233704}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 102.4, y: 102.42501}
-    newSize: {x: 204.8, y: 204.85002}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 85.73349, y: 85.05255}
-  m_EdgeRadius: 0
 --- !u!82 &5012638038512135438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -268,3 +243,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!68 &6551782815887014423
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883882177956734260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -47.173637, y: -3.856491}
+  - {x: -36.38968, y: 12.098579}
+  - {x: -46.119102, y: 41.892204}
+  - {x: -30.545727, y: 41.892204}
+  - {x: -7.5094795, y: 27.142822}
+  - {x: 15.305595, y: 39.109764}
+  - {x: 52.620056, y: -4.7541275}
+  - {x: 43.243393, y: -19.429836}
+  - {x: 27.596321, y: -6.1229897}
+  - {x: -4.6243668, y: -33.634354}
+  - {x: -46.766754, y: -3.8564873}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3826781602819633172}
   - component: {fileID: 3826781602819633173}
   - component: {fileID: 208205248833122799}
-  - component: {fileID: 1399231676515954033}
   - component: {fileID: 1434567170}
   - component: {fileID: 1434567171}
+  - component: {fileID: 1683952893625666226}
   m_Layer: 0
   m_Name: butterfly_0
   m_TagString: Untagged
@@ -125,32 +125,7 @@ MonoBehaviour:
   soundFx:
   - {fileID: 8300000, guid: eb9bd5763b05d9d45be348dc15c5fc17, type: 3}
   - {fileID: 8300000, guid: fdc76496dcdad7d479b294917ccd0b14, type: 3}
---- !u!61 &1399231676515954033
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3826781602819633386}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -9.484467, y: 6.9233704}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 128, y: 128.03127}
-    newSize: {x: 204.8, y: 204.85002}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 87.30911, y: 85.05255}
-  m_EdgeRadius: 0
+  anim: {fileID: 0}
 --- !u!50 &1434567170
 Rigidbody2D:
   serializedVersion: 4
@@ -268,3 +243,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!68 &1683952893625666226
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826781602819633386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -57.508476, y: -5.0489655}
+  - {x: -42.749603, y: 21.638435}
+  - {x: -56.45394, y: 49.04711}
+  - {x: -37.700634, y: 49.04711}
+  - {x: -10.29195, y: 33.900208}
+  - {x: 19.280571, y: 49.04711}
+  - {x: 62.557434, y: -7.9340897}
+  - {x: 53.18077, y: -23.802273}
+  - {x: 35.14875, y: -10.097935}
+  - {x: -7.4068375, y: -40.39174}
+  - {x: -57.896515, y: -5.0489616}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

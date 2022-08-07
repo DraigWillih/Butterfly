@@ -53,7 +53,7 @@ public class SaveController : MonoBehaviour
     }
 
     // salva o coin do player
-    public void SaveCoin(float favo)
+    public void SaveCoin(int favo)
     {
         data.nectar = favo;
         string json = JsonUtility.ToJson(data);
@@ -89,41 +89,44 @@ public class SaveController : MonoBehaviour
         JsonUtility.FromJsonOverwrite(json, data);
 
         GameController.instance.id_current = data.mission_id[data.mission_id.Count - 1];
+        GameController.instance.missions = new MissionBase[2];
+        GameController.instance.id_mission = new int[2];
+        int temp = 0;
 
         for (int i = 0; i < data.mission_id.Count; i++)
         {
             if (data.is_complete[i] == false)
             {
+                print($"id da mission {data.mission_id[i]}");
                 GameController.instance.is_mission = true;
+                GameController.instance.id_mission[temp] = data.mission_id[i];
+                temp++;
             }
         }
-
-        GameController.instance.missions = new MissionBase[2];
-        GameController.instance.id_mission = new int[2];
 
         for (int i = 0; i < GameController.instance.missions.Length; i++)
         {
             GameObject newMission = new GameObject("Mission" + i);
             newMission.transform.SetParent(transform);
+            
 
-            if (data.missionType[i] == MissionType.SingleRun)
+            if (data.missionType[GameController.instance.id_mission[i]] == MissionType.SingleRun)
             {
                 GameController.instance.missions[i] = newMission.AddComponent<SingleRun>();
             }
-            else if (data.missionType[i] == MissionType.TotalMeters)
+            else if (data.missionType[GameController.instance.id_mission[i]] == MissionType.TotalMeters)
             {
                 GameController.instance.missions[i] = newMission.AddComponent<TotalMeters>();
             }
-            else if (data.missionType[i] == MissionType.NectarSingleRun)
+            else if (data.missionType[GameController.instance.id_mission[i]] == MissionType.NectarSingleRun)
             {
                 GameController.instance.missions[i] = newMission.AddComponent<NectarSingleRun>();
             }
-
-            GameController.instance.missions[i].max = data.mission_max_value[i];
-            GameController.instance.missions[i].reward = data.reward[i];
-            GameController.instance.missions[i].progress = data.mission_current_progress[i];
-            GameController.instance.missions[i].missionType = data.missionType[i];
-            GameController.instance.id_mission[i] = data.mission_id[i];
+            print($"valor de i {i} type {data.missionType[GameController.instance.id_mission[i]]}");
+            GameController.instance.missions[i].max = data.mission_max_value[GameController.instance.id_mission[i]];
+            GameController.instance.missions[i].reward = data.reward[GameController.instance.id_mission[i]];
+            GameController.instance.missions[i].currentProgress = data.mission_current_progress[GameController.instance.id_mission[i]];
+            GameController.instance.missions[i].missionType = data.missionType[GameController.instance.id_mission[i]];
         }
     }
 
@@ -146,7 +149,7 @@ public class SaveController : MonoBehaviour
 
 public class SaveData
 {
-    public float nectar;                         // valor total  
+    public int nectar;                         // valor total  
     public List<int> mission_max_value;         // valor maximo da missão
     public List<int> mission_id;                // valor id da missão
     public List<int> mission_current_progress; // salva valor acumulado da missão das missões que acumula

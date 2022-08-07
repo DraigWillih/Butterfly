@@ -9,11 +9,14 @@ public class Timer : MonoBehaviour
     public static bool stopTime;
 
     private bool is_finish;
+    private float timer;
+    private float delay;
 
     // Start is called before the first frame update
     void Start()
     {
         stopTime = false;
+        delay = 1;
     }
 
     // Update is called once per frame
@@ -25,8 +28,14 @@ public class Timer : MonoBehaviour
     {
         if (stopTime == false)
         {
-            GameController.instance.score_current = GameController.instance.score_current + Time.deltaTime;
-            timeLevelTxt.text = GameController.instance.score_current.ToString("F0");
+            timer += Time.deltaTime;
+
+            if (timer > delay)
+            {
+                timer = 0;
+                GameController.instance.score_current++;
+                timeLevelTxt.text = GameController.instance.score_current.ToString("F0");
+            }
         }
         else if (is_finish == false)
         {
@@ -35,17 +44,22 @@ public class Timer : MonoBehaviour
             {
                 if (GameController.instance.missions[i].missionType == MissionType.TotalMeters)
                 {
-                    print("if");
-                    GameController.instance.missions[i].progress += (int)GameController.instance.score_current;
-                    print(GameController.instance.missions[i].progress);
-                    print(GameController.instance.missions[i].currentProgress);
+                    print($"total meters id {GameController.instance.id_mission[i]}");
+                    GameController.instance.data.SaveProgress(GameController.instance.id_mission[i], GameController.instance.score_current);
+                    GameController.instance.missions[i].currentProgress += GameController.instance.score_current;
                 }
                 else if (GameController.instance.missions[i].missionType == MissionType.NectarSingleRun)
                 {
-                    print("else if");
-                    GameController.instance.missions[i].progress += (int)GameController.instance.nectar_current;
+                    print($"nectar id {GameController.instance.id_mission[i]}");
+                    GameController.instance.missions[i].currentProgress += GameController.instance.nectar_current;
+                    GameController.instance.data.SaveProgress(GameController.instance.id_mission[i], GameController.instance.nectar_current);
+                }
+                else if (GameController.instance.missions[i].missionType == MissionType.SingleRun)
+                {
+                    print("single run");
+                    GameController.instance.missions[i].currentProgress = GameController.instance.score_current;
                 }
             }
+        }
     }
-}
 }

@@ -29,6 +29,8 @@ public class butterfly : MonoBehaviour
         audioSfx = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         GameController.instance.butterfly = anim;
+        print($"id 1 mission {GameController.instance.id_mission[0]} id 2 mission {GameController.instance.id_mission[1]}");
+        print($"id 1 mission {GameController.instance.missions[0].missionType} id 2 mission {GameController.instance.missions[1].missionType}");
         anim.runtimeAnimatorController = GameController.instance.anim_Current.runtimeAnimatorController;
     }
 
@@ -48,8 +50,6 @@ public class butterfly : MonoBehaviour
         Timer.stopTime = true;
         GameController.instance.nectar_max += GameController.instance.nectar_current;
         GameController.instance.data.SaveCoin(GameController.instance.nectar_max);
-        GameController.instance.data.SaveProgress(GameController.instance.id_mission[0], (int)GameController.instance.score_current);
-        GameController.instance.data.SaveProgress(GameController.instance.id_mission[1], (int)GameController.instance.score_current);
         audioSfx.clip = soundFx[0];
         audioSfx.Play();
     }

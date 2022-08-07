@@ -17,13 +17,13 @@ public class GameController : MonoBehaviour
     public TMP_Text nectarText;
 
     [HideInInspector]
-    public float nectar_max;
+    public int nectar_max;
+    //[HideInInspector]
+    public int nectar_current;
     [HideInInspector]
-    public float nectar_current;
+    public int score_max;
     //[HideInInspector]
-    public float score_max;
-    //[HideInInspector]
-    public float score_current;
+    public int score_current;
     [HideInInspector]
     public SaveController data;
     [HideInInspector]

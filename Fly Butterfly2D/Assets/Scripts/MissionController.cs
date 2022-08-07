@@ -31,10 +31,10 @@ public class MissionController : MonoBehaviour
 		for (int i = 0; i < 2; i++)
 		{
 			MissionBase missions = GameController.instance.GetMission(i);
+			print($"set mission {missions}");
 			missionDescription[i].text = missions.GetMissionDescription();
 			missionReward[i].text = $"Recompensa: {missions.reward}";
 			missionProgress[i].text = $"{missions.progress + missions.currentProgress} / {missions.max}";
-			print(missions);
 			if (missions.GetMissionComplete())
 			{
 				RecompensaBtn[i].SetActive(true);
@@ -51,5 +51,5 @@ public class MissionController : MonoBehaviour
 		RecompensaBtn[missionIndex].SetActive(false);
 		GameController.instance.GenerateMission(missionIndex);
 		GameController.instance.UpdateHUD();
-    }
+	}
 }
